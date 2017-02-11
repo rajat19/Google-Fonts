@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php $fontArray = array('CaveatBrush', 'Exo', 'IndieFlower', 'Lobster', 'Pangolin', 'Raleway', 'Sansita', 'Slabo', 'TitilliumWeb');?>
+	<?php $fontArray = array('Alegreya', 'CaveatBrush', 'Creepster', 'Exo', 'IndieFlower', 'Lobster', 'Pacifico', 'Pangolin', 'Raleway', 'Sansita', 'Satisy', 'Slabo', 'TitilliumWeb');?>
 	<title>Fonts Google</title>
 	<link rel="stylesheet" type="text/css" href="materialize.custom.css">
 	<?php
