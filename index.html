@@ -1,0 +1,87 @@
+---
+title: Fonts Google
+cardTitle: Fonts sponsored by Google
+---
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="materialize.custom.css"> -->
+    <style type="text/css">
+        .card-title {
+            display: inline !important;
+        }
+        {% for font in site.data.settings.fonts %}
+            @font-face {
+                font-family: {{ font }};
+                src: local('{{ font }} Regular'),
+                    local('{{ font }}-Regular'),
+                    url(fonts/{{ font }}-Regular.ttf);
+                font-weight: bold;
+            }
+            .{{ font }} { font-family: '{{ font }}', cursive; }
+        {% endfor %}
+    </style>
+</head>
+<body class="red lighten-4">
+<div class="container">
+	<div class="row">
+		<div class="card z-depth-3">
+			<div class="card-content blue-grey white-text">
+                <span class="card-title">{{ page.cardTitle }}</span>
+                <a href="#code" class="modal-trigger red-text waves-effect waves-light">
+                    <span><i class="fa fa-cog fa-2x fa-spin"></i></span>
+                </a>
+			</div>
+			<div class="card-content">				
+				<table class="">
+                    {% for font in site.data.settings.fonts %}
+                        <tr>
+                            <td><h3 class='{{ font }}'>Hi I'm in {{ font }} font</h3></td>
+                            <td><a href='fonts/{{ font }}-Regular.ttf' class='btn waves-effect waves-light blue-grey lighten-1'>Download</a></td>
+                        </tr>
+                    {% endfor %}
+				</table>
+			</div>
+		</div>	
+	</div>
+</div>
+<div id="code" class="modal">
+    <div class="modal-content">
+		Copy paste below line to your css file:<br> 
+		<div class="blue-grey lighten-4" style="padding: 10px;">
+			<code>
+				@font-face {<br>
+				  font-family: XXX;<br>
+				  src: local('XXX Regular'),<br>
+				       local('XXX-Regular'),<br>
+				       url(fonts/XXX-Regular.ttf);<br>
+				  font-weight: bold;<br>
+				 }
+			</code>
+		</div>
+		<br>and<br>
+		<div class="blue-grey lighten-4" style="padding: 10px;">
+			<code>
+				.XXX { font-family: 'XXX', cursive; }
+			</code>
+		</div>
+		where XXX stands for any of following downloaded fonts<br>
+		<h5>
+        {% for font in site.data.settings.fonts %}
+            <span class="{{ font }}">{{ font }}</span>
+        {% endfor %}
+        </h5>
+	</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.modal').modal();
+    });
+</script>
+</body>
+</html>
